@@ -1,0 +1,97 @@
+ALGORITHM SimpleComm
+VAR
+ A : ARRAY_OF INTEGER[] := [12,13, 11,10];
+ B : ARRAY_OF INTEGER[] := [13,12,18,15];
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+         
+    
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (A[i] = B [j]) THEN
+            sum := sum + A[i]*2
+        END_IF
+    END_FOR
+    END_FOR
+END
+
+
+
+
+
+ALGORITHM SimpleHash
+VAR
+ A : ARRAY_OF INTEGER[] := [12,13, 11,10];
+ B : ARRAY_OF INTEGER[] := [13,12,18,15];
+ H : HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+      H.insert (A[i],1)
+      END_FOR   
+    
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (H.lookup(B[i]=true)) THEN
+            H.insert(B[i],2)
+            
+            ELSE
+                H.insert (B[i],1)
+            END_IF 
+        
+    END_FOR
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (H.get(A[i]) = 2) THEN
+            sum := sum + A[i]*2
+        END_IF
+    END_FOR
+END
+
+ALGORITHM DiffeHash
+VAR
+ A : ARRAY_OF INTEGER[] := [12,13, 11,10];
+ B : ARRAY_OF INTEGER[] := [13,12,18,15];
+ H : HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+      H.insert (A[i],1)
+      END_FOR   
+    
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (H.lookup(B[i]=true)) THEN
+            H.insert(B[i],2)
+            
+            ELSE
+                H.insert (B[i],1)
+            END_IF 
+        
+    END_FOR
+    FOR j FROM 1 TO A.length STEP 1  DO
+        IF (H.get(A[i]) = 1) THEN
+            sum := sum + A[i]
+        END_IF
+    END_FOR
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (H.get(B[i]) = 1) THEN
+            sum := sum + B[i]
+        END_IF
+END
+
+ALGORITHM SimpleDis
+VAR
+ A : ARRAY_OF INTEGER[] := [12,13, 11,10];
+ B : ARRAY_OF INTEGER[] := [13,12,18,15];
+ Sum : INTEGER := 0 ;
+ verif : BOOLEAN := false ;
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+         
+    
+    FOR j FROM 1 TO B.length STEP 1  DO
+        IF (A[i] = B [j]) THEN
+            verif := true ;
+        END_IF
+    END_FOR
+    IF (verif = false) THEN
+        sum := sum + A[i]
+    END_IF
+    verif := false
+    END_FOR
+END
